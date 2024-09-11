@@ -9,7 +9,6 @@ Changes made:
 
 3. Program class:
    - Implemented input validation for numbers and operations.
-   - Added formatted output using `StringBuilder` for better readability.
    - Integrated the `CalculatorEngine` class through a DLL for modularity.
 
 4. DLL integration:
