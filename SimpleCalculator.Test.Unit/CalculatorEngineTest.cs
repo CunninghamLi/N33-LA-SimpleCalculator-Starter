@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using CalculatorEngineLibrary; // Ensure this namespace is correct for your CalculatorEngine class
 
 namespace SimpleCalculator.Test.Unit
 {
@@ -9,25 +10,21 @@ namespace SimpleCalculator.Test.Unit
         private readonly CalculatorEngine _calculatorEngine = new CalculatorEngine();
 
         [TestMethod]
-        public void AddsTwoNumbersAndReturnsValidResultForNonSymbolOpertion()
+        public void AddsTwoNumbersAndReturnsValidResultForNonSymbolOperation()
         {
-
-            int number1 = 1;
-            int number2 = 2;
+            double number1 = 1.0;
+            double number2 = 2.0;
             double result = _calculatorEngine.Calculate("add", number1, number2);
-            Assert.AreEqual(3, result);
-
+            Assert.AreEqual(3.0, result, 0.0001); // Added delta for floating-point comparison
         }
 
         [TestMethod]
-        public void AddsTwoNumbersAndReturnsValidResultForSymbolOpertion()
+        public void AddsTwoNumbersAndReturnsValidResultForSymbolOperation()
         {
-
-            int number1 = 1;
-            int number2 = 2;
+            double number1 = 1.0;
+            double number2 = 2.0;
             double result = _calculatorEngine.Calculate("+", number1, number2);
-            Assert.AreEqual(3, result);
-
+            Assert.AreEqual(3.0, result, 0.0001); // Added delta for floating-point comparison
         }
     }
 }
