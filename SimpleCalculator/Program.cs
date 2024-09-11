@@ -1,4 +1,5 @@
 ﻿using System;
+using CalculatorEngineLibrary;
 
 namespace SimpleCalculator
 {
@@ -6,28 +7,22 @@ namespace SimpleCalculator
     {
         static void Main(string[] args)
         {
+            double num1 = InputConverter.GetValidNumber("Enter number 1: ");
+            double num2 = InputConverter.GetValidNumber("Enter number 2: ");
+            string operation = InputConverter.GetValidOperation();
+
+            var calculatorEngine = new CalculatorEngine();
+            double result;
+
             try
             {
-                // Class to convert user input
-                InputConverter inputConverter = new InputConverter();
-
-                // Class to perform actual calculations
-                CalculatorEngine calculatorEngine = new CalculatorEngine();
-
-                double firstNumber = inputConverter.ConvertInputToNumeric(Console.ReadLine());
-                double secondNumber = inputConverter.ConvertInputToNumeric(Console.ReadLine());
-                string operation = Console.ReadLine();
-
-                double result = calculatorEngine.Calculate(operation, firstNumber, secondNumber);
-
-                Console.WriteLine(result);
-
-            } catch (Exception ex)
-            {
-                // Normally, we'd log this error to a file.
-                Console.WriteLine(ex.Message);
+                result = calculatorEngine.Calculate(operation, num1, num2);
+                Console.WriteLine($"Your result: {num1} {operation} {num2} = {result:F2}");
             }
-
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred: {ex.Message}");
+            }
         }
     }
 }
