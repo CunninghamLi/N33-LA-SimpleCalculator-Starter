@@ -22,6 +22,7 @@ namespace SimpleCalculator
 
             return number;
         }
+
         public static string GetValidOperation()
         {
             string operation = string.Empty;
